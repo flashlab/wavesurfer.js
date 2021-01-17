@@ -8,9 +8,11 @@ let wavesurferWithOptions;
 document.addEventListener('DOMContentLoaded', function() {
     wavesurfer = WaveSurfer.create({
         container: document.querySelector('#waveform'),
-        barWidth: 2,
-        barHeight: 1,
-        barGap: null
+        barWidth: 3,
+        //barHeight: 1,
+        barGap: 1,
+        barSplitRatio: 1,
+        scrollParent: true
     });
 
     wavesurfer.on('error', function(e) {
@@ -18,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Load audio from URL
-    wavesurfer.load('../media/demo.wav');
+    wavesurfer.load('../media/stereo.mp3');
 
     // Play button
     const button = document.querySelector('[data-action="play"]');

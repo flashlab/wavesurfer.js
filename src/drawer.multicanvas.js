@@ -299,7 +299,7 @@ export default class MultiCanvas extends Drawer {
                 for (i; i < last; i += step) {
                     const peak =
                         peaks[Math.floor(i * scale * peakIndexScale)] || 0;
-                    let h = Math.round((peak / absmax) * halfH);
+                    let h = Math.abs(Math.round((peak / absmax) * halfH));
 
                     /* in case of silences, allow the user to specify that we
                      * always draw *something* (normally a 1px high bar) */
@@ -308,7 +308,8 @@ export default class MultiCanvas extends Drawer {
 
                     this.fillRect(
                         i + this.halfPixel,
-                        halfH - h + offsetY,
+                        //halfH - h + offsetY,
+                        (height - h * 2) * this.params.barSplitRatio + offsetY,
                         bar + this.halfPixel,
                         h * 2,
                         this.barRadius,

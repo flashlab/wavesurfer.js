@@ -169,6 +169,7 @@ import MediaElementWebAudio from './mediaelement-webaudio';
  * @property {boolean} relativeNormalization=false determines whether
  * normalization is done per channel or maintains proportionality between
  * channels. Only applied when normalize and splitChannels are both true.
+ * @property {boolean} barSplitRatio=0.5 up/down height ratio of bar view
  * @since 4.3.0
  */
 
@@ -252,6 +253,7 @@ export default class WaveSurfer extends util.Observer {
         barRadius: 0,
         barGap: null,
         barMinHeight: null,
+        barSplitRatio: 0.5,
         container: null,
         cursorColor: '#333',
         cursorWidth: 1,
